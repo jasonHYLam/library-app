@@ -1,0 +1,214 @@
+body {
+    margin: 0;
+}
+:root {
+    --background-color:  #014183;
+    --fixed-background-color:  #F0F2FB;
+    --button-color: white;
+    --card-background-color: #2B67A5;
+    --card-text-color: white;
+    --header-background-color:#ada1a1 ;
+    --card-shadow-color: #BF8489;
+    --popup-form-width: 500px;
+    --popup-form-height: 300px;
+    --switch-container-height: 36px;
+    --switch-button-height: 26px;
+
+}
+body {
+    background-color: var(--background-color);
+}
+
+#wrapper {
+    padding-top: 30px;
+    display: grid;
+    justify-content: center;
+}
+
+#library {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px 30px;
+    padding: 30px 65px 50px;
+    justify-items: center;
+    align-self: center;
+}
+.card {
+    background-color: var(--card-background-color);
+    width: 200px;
+    display: grid;
+    justify-items: center;
+    row-gap: 10px;
+    height: 250px;
+    color: var(--card-text-color);
+    border-radius: 20px;
+    border-color: #8E94A3;
+    border-width: 3px;
+    overflow: hidden;
+    box-shadow: 0px 5px var(--card-shadow-color);
+    
+    
+}
+
+.card-element {
+
+}
+
+#popup-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: var(--popup-form-width);
+    height: var(--popup-form-height);
+    background-color: #e8e8e8;
+    margin-left: calc(var(--popup-form-width) * -0.5 );
+    margin-top: calc(var(--popup-form-height) * -0.5 );
+    grid-template-columns: 1fr;
+    justify-items: center;
+    padding-bottom: 30px;
+}
+
+#form-container {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#form-input-container {
+    padding-bottom: 20px;
+}
+.form-input {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    column-gap: 40px;
+}
+
+#submit-button,
+#close-button {
+    max-width: 100px;
+}
+.dimmer {
+    position: fixed;
+    /* opacity: 0.5;
+    background-color:red; */
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0,0,0,.75)
+
+}
+
+.undim {
+    display: none;
+}
+
+
+#switch {
+    height: var(--switch-container-height);
+    width: calc(var(--switch-container-height) + var(--switch-button-height));
+    position: relative;
+    /* display: inline-block; */
+
+}
+
+#switch input {
+  height: 0;  
+  width: 0;  
+  opacity: 0;
+}
+
+.slider {
+    background-color: #ccc;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.4s;
+    -webkit-transition: 0.4s;
+    cursor: pointer;
+}
+
+.slider::before {
+    position: absolute;
+    content: "";
+    height: var(--switch-button-height);
+    width: var(--switch-button-height);
+    background-color: white;
+    left: calc((var(--switch-container-height) - var(--switch-button-height))/2);
+    bottom: calc((var(--switch-container-height) - var(--switch-button-height))/2);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+input[type=text] {
+    padding: 10px 20px;
+}
+
+#add-book {
+    width: 200px;
+    height: 60px;
+    cursor: pointer;
+    margin: 0 auto;
+    background-color: white;
+    color: black;
+    box-shadow: 0px 5px #80627A;
+    border: none;
+}
+
+.read {
+    background-color:blue;
+}
+
+.not-read {
+    background-color: brown;
+}
+
+.card button {
+    background-color: white;
+    border-radius: 8px;
+    border: none;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.header {
+    background-color: var(--header-background-color);
+    width: 100%;
+    height: 70px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.header > div {
+    font-size: 20px;
+    
+    color: var(--button-color);
+    display: grid;
+    align-content: center;
+}
+
+.card button {
+    background-color: var(--button-color);
+}
+
+#blue-background {
+    background-color: var(--fixed-background-color);
+    position: fixed;
+    padding: 10px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 65vh;
+    bottom: 0;
+    z-index: -1;
+}
